@@ -6,16 +6,16 @@ GPIOC_BSRR  EQU     0x40011010
 GPIOC_BRR   EQU     0x40011014
 GPIOC_LCKR  EQU     0x40011018
 STACK_TOP   EQU 0X20002000
-			AREA RESET,CODE,READONLY
-			DCD STACK_TOP ;MSP 
-			DCD start	  ;PC
+	    AREA RESET,CODE,READONLY
+       	    DCD STACK_TOP ;MSP 
+            DCD start	  ;PC
 
             AREA    RESET, CODE, READONLY
 
             ENTRY
 start
             	  
-    		LDR   r1, =GPIOC_CRH      ; Address for port c control register
+    	    LDR   r1, =GPIOC_CRH      ; Address for port c control register
             LDR   r0, [r1]
 			STR   r0, [r1]            ; Write to contorl register
 
